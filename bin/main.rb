@@ -15,15 +15,25 @@ def print_board(board)
     puts ''
 end
 
-puts print_board(the_board)
-
-puts "Type a number from 1 to 9"
-
-xOrO = gets.chomp
-
-if ('1'..'9').include? xOrO
-    puts "Cool!"
-else
-    puts xOrO
-    puts "Try again!!!"
+def user_input
+  xOrO = gets.chomp
+  if ('1'..'9').include? xOrO
+    xOrO = xOrO.to_i
+    puts "Now, your move is displayed on the board in position #{xOrO}"
+  else
+      puts xOrO
+      puts "Try again!!!"
+  end
+  xOrO
 end
+
+
+puts print_board(the_board)
+puts "Player X : Type a number from 1 to 9"
+user_input()
+puts "Player O : Type a number from 1 to 9"
+user_input()
+puts "Player X : Type a number from 1 to 9"
+user_input()
+puts "Player O : Type a number from 1 to 9"
+user_input()
