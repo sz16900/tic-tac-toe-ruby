@@ -1,1 +1,1 @@
-# OOP-tic-tac-toe
+# Ruby-tic-tac-toe
