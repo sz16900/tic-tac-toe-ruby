@@ -27,13 +27,24 @@ def user_input
   x
 end
 
-puts print_board(the_board)
-puts 'Player X : Type a number from 1 to 9'
-user_input
-puts 'Player O : Type a number from 1 to 9'
-user_input
-puts 'Player X : Type a number from 1 to 9'
-user_input
-puts 'Player O : Type a number from 1 to 9'
-user_input
-puts 'Player X Wins!'
+game_over = false
+
+wins = false
+
+draws = false
+
+until game_over
+  game_over = true if wins || draws
+
+  puts print_board(the_board)
+  puts 'Player X : Type a number from 1 to 9'
+  user_input
+  puts 'Player O : Type a number from 1 to 9'
+  user_input
+  puts 'Player X : Type a number from 1 to 9'
+  user_input
+  puts 'Player O : Type a number from 1 to 9'
+  user_input
+  puts 'Player X Wins!'
+  game_over = true
+end
