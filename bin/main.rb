@@ -24,18 +24,17 @@ class Display
     print 'Choose a number between 1 and 9: '
     x = gets.chomp
     raise 'An Error' unless ('1'..'9').include? x
+
     # raise 'Another Error' if x == 'X' || x == 'O'
 
-
     @position = x.to_i
-
   rescue StandardError
     puts 'Wrong Input! Please try again.'
     retry
   end
 
   def position_taken
-    puts "Position taken! Please try again."
+    puts 'Position taken! Please try again.'
   end
 end
 
@@ -44,7 +43,7 @@ class Board
 
   def initialize
     @the_board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    @the_player = "X"
+    @the_player = 'X'
   end
 
   def change_player
@@ -55,13 +54,13 @@ class Board
     row = (pos - 1) / 3
     col = (pos - 1) % 3
     if @the_board[row][col].is_a? Integer
-      return true
+      true
     else
-      return false
+      false
     end
   end
 
-  def update_board(new_pos) 
+  def update_board(new_pos)
     row = (new_pos - 1) / 3
     col = (new_pos - 1) % 3
     @the_board[row][col] = @the_player
@@ -87,7 +86,7 @@ class Game
         @display.position_taken
       end
       # @display.print_board(@board.the_board)
-      
+
       # @game_over = true
     end
   end
