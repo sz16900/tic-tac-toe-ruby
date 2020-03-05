@@ -20,15 +20,16 @@ class Display
     puts ''
   end
 
-  def user_input
+  def user_input(player)
+    puts ""
+    puts "Ready Player #{player}?"
     print 'Choose a number between 1 and 9: '
     x = gets.chomp
     raise 'An Error' unless ('1'..'9').include? x
 
-    # raise 'Another Error' if x == 'X' || x == 'O'
-
     @position = x.to_i
   rescue StandardError
+    puts ""
     puts 'Wrong Input! Please try again.'
     retry
   end
@@ -76,18 +77,14 @@ class Game
 
   def start
     until @game_over
-      # game_over = true if wins || draws
       @display.print_board(@board.the_board)
-      @display.user_input
+      @display.user_input(@board.the_player)
       if @board.pos_valid?(@display.position)
         @board.update_board(@display.position)
         @board.change_player
       else
         @display.position_taken
       end
-      # @display.print_board(@board.the_board)
-
-      # @game_over = true
     end
   end
 end
