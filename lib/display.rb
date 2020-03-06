@@ -19,19 +19,21 @@ class Display
     string_board
   end
 
-  def user_input(player, usr_input)
-    puts ''
-    puts "Ready Player #{player}?"
-    print 'Choose a number between 1 and 9: '
-    # x = gets.chomp
-    raise 'An Error' unless ('1'..'9').include? usr_input
-
-    @position = usr_input.to_i
-  rescue StandardError
-    puts ''
-    puts 'Wrong Input! Please try again.'
-    retry
+  def ask_user(player)
+    str = "\n"
+    str += "Ready Player #{player}?\n"
+    str += "Choose a number between 1 and 9: "
+    str
   end
+
+  def wrong_input
+    str =  "\n"
+    str +=  "Wrong Input! Please try again.\n"
+    str += "Choose a number between 1 and 9: "
+    str
+  end
+
+
 
   def position_taken
     puts ''
