@@ -11,12 +11,15 @@ class Game
   def start
     until @game_over
 
-      @display.print_board(@board.the_board)
-      @display.user_input(@board.the_player)
+      puts @display.print_board(@board.the_board)
+      print "choose position "
+      @display.user_input(@board.the_player, usr_input = gets.chomp)
+
+      # @display.user_input(@board.the_player)
       if @board.pos_valid?(@display.position)
         @board.update_board(@display.position)
         if @board.won?
-          @display.player_wins(@board.the_player)
+          puts @display.player_wins(@board.the_player)
           @scores[@board.the_player] += 1
           end_game_handler
         elsif @board.draw?

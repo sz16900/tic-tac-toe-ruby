@@ -6,26 +6,27 @@ class Display
   end
 
   def print_board(board)
-    puts ''
+    string_board = "\n"
     (0..2).each do |row|
-      print '|'
+      string_board += '|'
       (0..2).each do |col|
-        print board[row][col]
-        print '|'
+        string_board += board[row][col].to_s
+        string_board += '|'
       end
-      puts ''
+      string_board += "\n"
     end
-    puts ''
+    string_board += "\n"
+    string_board
   end
 
-  def user_input(player)
+  def user_input(player, usr_input)
     puts ''
     puts "Ready Player #{player}?"
     print 'Choose a number between 1 and 9: '
-    x = gets.chomp
-    raise 'An Error' unless ('1'..'9').include? x
+    # x = gets.chomp
+    raise 'An Error' unless ('1'..'9').include? usr_input
 
-    @position = x.to_i
+    @position = usr_input.to_i
   rescue StandardError
     puts ''
     puts 'Wrong Input! Please try again.'
@@ -38,8 +39,8 @@ class Display
   end
 
   def player_wins(player)
-    puts ''
-    puts "Player #{player} is the WINNER!!!"
+    s = "\n"
+    s += "Player #{player} is the WINNER!!!"
   end
 
   def draw
