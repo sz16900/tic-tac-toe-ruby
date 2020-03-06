@@ -33,44 +33,42 @@ class Display
     str
   end
 
-
+  def wrong_input2
+    str =  "\n"
+    str +=  "Wrong Input! Please try again.\n"
+    str
+  end
 
   def position_taken
-    puts ''
-    puts 'Position taken! Please try again.'
+    str = "\n"
+    str += 'Position taken! Please try again.'
   end
 
   def player_wins(player)
     s = "\n"
-    s += "Player #{player} is the WINNER!!!"
+    s += "Player #{player} is the WINNER!!!\n"
   end
 
   def draw
-    puts ''
-    puts "It's a DRAW!!!"
+    str = "\n"
+    str += "It's a DRAW!!!\n"
+    str
   end
 
   def score_board(player_hash)
-    puts 'Scores'
+    str = "Scores\n"
     player_hash.each do |k, v|
-      puts "#{k} : #{v} "
+      str += "#{k} : #{v} \n"
     end
-    puts ''
+    str
   end
 
-  def play_again?
-    puts 'Play Again? y/n'
-    yes = gets.chomp
-    if yes == 'y'
-      false
-    elsif yes == 'n'
-      true
-    else
-      raise 'An error'
-    end
-  rescue StandardError
-    puts ''
-    puts 'Wrong Input! Please try again.'
-    retry
-  end
+#   def play_again?(yes)
+
+#     if yes == 'y'
+#       false
+#     elsif yes == 'n'
+#       true
+#     end
+    
 end
