@@ -22,31 +22,35 @@ class Display
   def ask_user(player)
     str = "\n"
     str += "Ready Player #{player}?\n"
-    str += "Choose a number between 1 and 9: "
+    str += 'Choose a number between 1 and 9: '
     str
   end
 
   def wrong_input
-    str =  "\n"
-    str +=  "Wrong Input! Please try again.\n"
-    str += "Choose a number between 1 and 9: "
+    str = "\n"
+    str += "Wrong Input! Please try again.\n"
+    str += 'Choose a number between 1 and 9: '
     str
   end
 
-  def wrong_input2
-    str =  "\n"
-    str +=  "Wrong Input! Please try again.\n"
+  def wrong_input2(input = nil)
+    str = "\n"
+    str += 'Play Again? y/n'
+    if input == true
+      str = "\n"
+      str += "Wrong Input! Please try again.\n"
+    end
     str
   end
 
   def position_taken
     str = "\n"
-    str += 'Position taken! Please try again.'
+    str + 'Position taken! Please try again.'
   end
 
   def player_wins(player)
     s = "\n"
-    s += "Player #{player} is the WINNER!!!\n"
+    s + "Player #{player} is the WINNER!!!\n"
   end
 
   def draw
@@ -62,13 +66,4 @@ class Display
     end
     str
   end
-
-#   def play_again?(yes)
-
-#     if yes == 'y'
-#       false
-#     elsif yes == 'n'
-#       true
-#     end
-    
 end

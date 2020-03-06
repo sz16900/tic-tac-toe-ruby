@@ -9,12 +9,12 @@ class Game
     @postion = nil
   end
 
-  def usr_input_validate?(x)
-    if ('1'..'9').include? x
-      @position = x.to_i
-      return true
+  def usr_input_validate?(input)
+    if ('1'..'9').include? input
+      @position = input.to_i
+      true
     else
-     return false
+      false
     end
   end
 
@@ -24,14 +24,12 @@ class Game
       puts @display.print_board(@board.the_board)
       print @display.ask_user(@board.the_player)
 
-      loop do 
+      loop do
         yes = usr_input_validate?(gets.chomp)
-        if yes == true
-          break
-        else 
-          print @display.wrong_input
-        end
-      end 
+        break if yes == true
+
+        print @display.wrong_input
+      end
 
       if @board.pos_valid?(@position)
         @board.update_board(@position)
@@ -51,25 +49,23 @@ class Game
     end
   end
 
-
-
   def play_again?(yes)
-    if yes == "y"
+    if yes == 'y'
       true
-    elsif yes == "n"
+    elsif yes == 'n'
       false
     else
-      return "An error"
+      'An error'
     end
-  end  
-  
-  private  
-  
+  end
+
+  private
+
   def end_game_handler
     @display.print_board(@board.the_board)
     @display.score_board(@scores)
     loop do
-      puts 'Play Again? y/n'
+      print @display.wrong_input2
       yes = play_again?(gets.chomp)
       if yes == true
         @board.reset_board
@@ -78,35 +74,8 @@ class Game
         @game_over = true
         break
       else
-        print @display.wrong_input2
+        print @display.wrong_input2(true)
       end
     end
   end
-
-  # private
-
-  # def end_game_handler
-  #   puts @display.print_board(@board.the_board)
-  #   puts @display.score_board(@scores)
-
-  #   loop do
-  #     puts 'Play Again? y/n'
-  #     yay = gets.chomp
-  #     # @game_over = @display.play_again?(yay)
-  #     if yay == 'y'
-  #       @game_over = false
-  #       break
-  #     elsif yay == 'n'
-  #       @game_over = true
-  #       break
-  #     else
-  #       puts ''
-  #       puts 'Wrong Input! Please try again.'
-  #     end
-  #   end
-
-  #   @board.reset_board
-  # end
-
-
 end
