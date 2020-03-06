@@ -6,10 +6,6 @@ class Board
     @the_player = 'X'
   end
 
-  def change_player
-    @the_player = @the_player == 'O' ? 'X' : 'O'
-  end
-
   def pos_valid?(pos)
     row = (pos - 1) / 3
     col = (pos - 1) % 3
@@ -24,6 +20,8 @@ class Board
     row = (new_pos - 1) / 3
     col = (new_pos - 1) % 3
     @the_board[row][col] = @the_player
+    change_player
+    true
   end
 
   # draw methods
@@ -78,6 +76,14 @@ class Board
 
   def reset_board
     @the_board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    @the_player = 'X'
+    change_player
+    true
+  end
+
+  private
+
+  def change_player
+    @the_player = @the_player == 'O' ? 'X' : 'O'
+    true
   end
 end

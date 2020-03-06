@@ -6,11 +6,9 @@ class Game
   end
 
   def usr_input_validate?(input)
-    if ('1'..'9').include? input
-      return input.to_i
-    else
-      false
-    end
+    return input.to_i if ('1'..'9').include? input
+
+    false
   end
 
   def play_again?(yes)
@@ -22,5 +20,4 @@ class Game
       'An error'
     end
   end
-
 end

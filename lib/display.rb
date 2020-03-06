@@ -16,26 +16,23 @@ class Display
       string_board += "\n"
     end
     string_board += "\n"
-    string_board
   end
 
   def ask_user(player)
     str = "\n"
     str += "Ready Player #{player}?\n"
-    str += 'Choose a number between 1 and 9: '
-    str
+    str + 'Choose a number between 1 and 9: '
   end
 
   def wrong_input
     str = "\n"
     str += "Wrong Input! Please try again.\n"
-    str += 'Choose a number between 1 and 9: '
-    str
+    str + 'Choose a number between 1 and 9: '
   end
 
   def wrong_input2(input = nil)
     str = "\n"
-    str += 'Play Again? y/n'
+    str += 'Play Again? y/n: '
     if input == true
       str = "\n"
       str += "Wrong Input! Please try again.\n"
@@ -54,8 +51,7 @@ class Display
   end
 
   def draw
-    str = "\n"
-    str += "It's a DRAW!!!\n"
+    str = "\nIt's a DRAW!!!\n"
     str
   end
 
@@ -64,6 +60,11 @@ class Display
     player_hash.each do |k, v|
       str += "#{k} : #{v} \n"
     end
+    str
+  end
+
+  def end_game_message
+    str += "\nThank you for playing. \nGOODBYE! \n\n"
     str
   end
 end
