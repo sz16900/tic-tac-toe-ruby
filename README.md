@@ -8,6 +8,48 @@ Written in Ruby in partial fulfillment of the Microverse Cirriculum.
 ## Built With
 
 - Ruby
+- Rubocop
+
+---
+
+## Pre-requisites
+
+  <a href="https://www.ruby-lang.org/en/documentation/installation/">Ruby must be installed in your computer.</a>
+
+---
+
+
+## Installing Ruby Tic-Tac-Toe
+
+When you have installed Ruby on your computer, clone the project. You can do this by first opening the terminal. Type 
+
+* Verify Ruby is installed on your computer.
+* Open up your terminal.
+* Clone the project to your computer. You can do this by typing: <b>git clone https://github.com/sz16900/OOP-tic-tac-toe.git</b>
+* Go to main folder: cd OOP-tic-tac-toe
+* Run game by typing: bin/main.rb
+* Enjoy!
+
+
+---
+
+
+## Tic-tac-toe rules
+
+  Number of Players: 2
+
+Each player must choose 1 out of the 9 possible spaces to play in. The place she or he has chosen will be marked by their symbol: X (for player 1) and O (for player 2). 
+
+You can’t play on any position more than  once.
+
+The first player to get three of their symbols in a row, wins the game. Keep in mind these rows can be 
+
+    • horizontal (left-to-right or right-to-left)
+      
+    • vertical (from up to down or down to up)
+      
+    • or diagonal (e.g. top-left to bottom-right).
+
 
 ---
 
