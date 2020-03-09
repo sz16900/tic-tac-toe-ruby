@@ -1,163 +1,91 @@
 #!/usr/bin/env ruby
 
-class Display
-  attr_reader :position
+require_relative '../lib/display'
+require_relative '../lib/board'
+require_relative '../lib/game'
 
-  def initialize
-    @position = nil
-  end
+@display = Display.new
+@board = Board.new
+@position = nil
+@game = Game.new
 
-  def print_board(board)
-    puts ''
-    (0..2).each do |row|
-      print '|'
-      (0..2).each do |col|
-        print board[row][col]
-        print '|'
-      end
-      puts ''
-    end
-    puts ''
-  end
-
-  def user_input(player)
-    puts ''
-    puts "Ready Player #{player}?"
-    print 'Choose a number between 1 and 9: '
-    x = gets.chomp
-    raise 'An Error' unless ('1'..'9').include? x
-
-    @position = x.to_i
-  rescue StandardError
-    puts ''
-    puts 'Wrong Input! Please try again.'
-    retry
-  end
-
-  def position_taken
-    puts ''
-    puts 'Position taken! Please try again.'
-  end
-
-  def player_wins(player)
-    puts ''
-    puts "Player #{player} is the WINNER!!!"
-  end
-
-  def draw
-    puts ''
-    puts "It's a DRAW!!!"
-  end
+def win_method
+  @game.scores[@board.the_player] += 1
+  end_game_prompt
+  end_game_handler
+  true
 end
 
-class Board
-  attr_reader :the_board, :the_player
+def draw_method
+  @game.scores['draws'] += 1
+  end_game_prompt
+  end_game_handler
+  true
+end
 
-  def initialize
-    @the_board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    @the_player = 'X'
-  end
-
-  def change_player
-    @the_player = @the_player == 'O' ? 'X' : 'O'
-  end
-
-  def pos_valid?(pos)
-    row = (pos - 1) / 3
-    col = (pos - 1) % 3
-    if @the_board[row][col].is_a? Integer
-      true
+def end_game_handler
+  loop do
+    end_game_wrong
+    yes = @game.play_again?(gets.chomp)
+    if yes == true
+      @board.reset_board
+      @board.change_player
+      break
+    elsif yes == false
+      @game_over = true
+      end_game_prompt(true)
+      break
     else
-      false
+      end_game_wrong(true)
     end
   end
-
-  def update_board(new_pos)
-    row = (new_pos - 1) / 3
-    col = (new_pos - 1) % 3
-    @the_board[row][col] = @the_player
-  end
-
-  # draw methods
-  def draw?
-    (0..2).each do |x|
-      return false if @the_board[x].any? Integer
-    end
-    true
-  end
-
-  # wining methods
-  def won?
-    return true if across1 || across2
-    return true if sides_horizontal || sides_vertical
-
-    false
-  end
-
-  def across1
-    if @the_board[0][0] == @the_board[1][1] && @the_board[0][0] == @the_board[2][2] && @the_board[0][0] == @the_player
-      return true
-    end
-
-    false
-  end
-
-  def across2
-    if @the_board[0][2] == @the_board[1][1] && @the_board[0][2] == @the_board[2][0] && @the_board[0][2] == @the_player
-      return true
-    end
-
-    false
-  end
-
-  def sides_horizontal
-    (0..2).each do |i|
-      if @the_board[i][0] == @the_board[i][1] && @the_board[i][0] == @the_board[i][2] && @the_board[i][0] == @the_player
-        return true
-      end
-    end
-    false
-  end
-
-  def sides_vertical
-    (0..2).each do |i|
-      if @the_board[0][i] == @the_board[1][i] && @the_board[0][i] == @the_board[2][i] && @the_board[0][i] == @the_player
-        return true
-      end
-    end
-    false
-  end
+  true
 end
 
-class Game
-  def initialize
-    @board = Board.new
-    @display = Display.new
-    @game_over = false
-  end
-
-  def start
-    until @game_over
-      @display.print_board(@board.the_board)
-      @display.user_input(@board.the_player)
-      if @board.pos_valid?(@display.position)
-        @board.update_board(@display.position)
-        if @board.won?
-          @display.player_wins(@board.the_player)
-          @display.print_board(@board.the_board)
-          @game_over = true
-        elsif @board.draw?
-          @display.draw
-          @display.print_board(@board.the_board)
-          @game_over = true
-        end
-        @board.change_player
-      else
-        @display.position_taken
-      end
-    end
-  end
+def end_game_prompt(ends = nil)
+  puts @display.print_board(@board.the_board)
+  puts @display.score_board(@game.scores)
+  puts @display.end_game_message if ends == true
+  true
 end
 
-g = Game.new
-g.start
+def end_game_wrong(bad = nil)
+  if bad == true
+    print @display.wrong_input2(true)
+    return true
+  end
+  print @display.wrong_input2
+  true
+end
+
+until @game_over
+
+  print @display.ask_user(@board.the_player)
+  yes = @game.usr_input_validate?(gets.chomp)
+  @position = yes
+
+  if yes.is_a? Integer
+
+    if @board.pos_valid?(@position)
+      @board.update_board(@position)
+      print @display.print_board(@board.the_board)
+    else
+      puts @display.position_taken
+    end
+    if @board.won?
+      puts @display.player_wins(@board.the_player)
+      win_method
+    end
+    if @board.draw?
+      puts @display.draw
+      draw_method
+    end
+    @board.change_player
+
+  else
+
+    print @display.wrong_input
+
+  end
+
+end
