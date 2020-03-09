@@ -20,7 +20,6 @@ class Board
     row = (new_pos - 1) / 3
     col = (new_pos - 1) % 3
     @the_board[row][col] = @the_player
-    change_player
     true
   end
 
@@ -34,9 +33,7 @@ class Board
 
   # winning methods
   def won?
-    return true if across1 || across2
-    return true if sides_horizontal || sides_vertical
-
+    return true if across1 || across2 || sides_horizontal || sides_vertical
     false
   end
 
@@ -79,8 +76,6 @@ class Board
     change_player
     true
   end
-
-  private
 
   def change_player
     @the_player = @the_player == 'O' ? 'X' : 'O'

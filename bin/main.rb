@@ -31,6 +31,7 @@ def end_game_handler
     yes = @game.play_again?(gets.chomp)
     if yes == true
       @board.reset_board
+      @board.change_player
       break
     elsif yes == false
       @game_over = true
@@ -45,22 +46,31 @@ end
 
 until @game_over
 
-  puts @display.print_board(@board.the_board)
+  # puts @display.print_board(@board.the_board)
   print @display.ask_user(@board.the_player)
+  yes = @game.usr_input_validate?(gets.chomp)
+  @position = yes
 
-  loop do
-    yes = @game.usr_input_validate?(gets.chomp)
-    @position = yes
-    break if yes.is_a? Integer
-
-    print @display.wrong_input
-  end
-
-  if @board.pos_valid?(@position)
-    @board.update_board(@position)
-    win_method if @board.won?
-    draw_method if @board.draw?
+  if yes.is_a? Integer
+    
+    if @board.pos_valid?(@position)
+      @board.update_board(@position)
+      print @display.print_board(@board.the_board)
+      if @board.won?
+        win_method
+      end
+      draw_method if @board.draw?
+    else
+      puts @display.position_taken
+    end
+    @board.change_player
+  
   else
-    puts @display.position_taken
+  
+    print @display.wrong_input
+  
   end
+
+
+
 end
