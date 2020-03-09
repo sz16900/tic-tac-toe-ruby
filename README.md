@@ -21,7 +21,7 @@ Written in Ruby in partial fulfillment of the Microverse Cirriculum.
 
 ## Installing Ruby Tic-Tac-Toe
 
-When you have installed Ruby on your computer, clone the project. You can do this by first opening the terminal. Type 
+When you have installed Ruby on your computer, clone the project. You can do this by first opening the terminal.
 
 * Verify Ruby is installed on your computer.
 * Open up your terminal.
