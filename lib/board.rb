@@ -34,6 +34,7 @@ class Board
   # winning methods
   def won?
     return true if across1 || across2 || sides_horizontal || sides_vertical
+
     false
   end
 

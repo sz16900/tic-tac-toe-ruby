@@ -64,7 +64,7 @@ class Display
   end
 
   def end_game_message
-    str += "\nThank you for playing. \nGOODBYE! \n\n"
+    str = "\nThank you for playing. \nGOODBYE! \n\n"
     str
   end
 end
