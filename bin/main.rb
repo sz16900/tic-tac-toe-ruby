@@ -5,7 +5,7 @@ require_relative '../lib/board'
 require_relative '../lib/game'
 
 @display = Display.new
-@board = Board.new
+@board = Board.new([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'X')
 @position = nil
 @game = Game.new
 

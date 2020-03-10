@@ -1,9 +1,9 @@
 class Board
   attr_reader :the_board, :the_player
 
-  def initialize
-    @the_board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    @the_player = 'X'
+  def initialize(the_board, the_player)
+    @the_board = the_board
+    @the_player = the_player
   end
 
   def pos_valid?(pos)
