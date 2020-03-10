@@ -6,7 +6,7 @@ class Game
   end
 
   def usr_input_validate?(input)
-    return input.to_i if ('1'..'9').include? input
+    return input.to_i if ('1'..'9').cover? input
 
     false
   end

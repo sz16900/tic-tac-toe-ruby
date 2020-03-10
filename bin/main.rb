@@ -5,7 +5,7 @@ require_relative '../lib/board'
 require_relative '../lib/game'
 
 @display = Display.new
-@board = Board.new
+@board = Board.new([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 'X')
 @position = nil
 @game = Game.new
 
@@ -44,7 +44,7 @@ end
 
 def end_game_prompt(ends = nil)
   puts @display.print_board(@board.the_board)
-  p @display.score_board(@game.scores)
+  puts @display.score_board(@game.scores)
   puts @display.end_game_message if ends == true
   true
 end
