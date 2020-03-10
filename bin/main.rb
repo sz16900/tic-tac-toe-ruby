@@ -44,7 +44,7 @@ end
 
 def end_game_prompt(ends = nil)
   puts @display.print_board(@board.the_board)
-  puts @display.score_board(@game.scores)
+  p @display.score_board(@game.scores)
   puts @display.end_game_message if ends == true
   true
 end
