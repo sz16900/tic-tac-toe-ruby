@@ -1,4 +1,4 @@
-# Ruby-tic-tac-toe
+# tic-tac-toe
 
 Tic tac toe! (The Game)
 Written in Ruby in partial fulfillment of the Microverse Cirriculum.
