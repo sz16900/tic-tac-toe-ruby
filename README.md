@@ -34,6 +34,12 @@ When you have installed Ruby on your computer, clone the project. You can do thi
 ---
 
 
+## Runnung Tests fot Tic-Tac-Toe
+
+`rspec`
+
+---
+
 ## Tic-tac-toe rules
 
   Number of Players: 2
