@@ -93,6 +93,14 @@ Give a ⭐️ if you like this project!
 
 ---
 
+## Future Feature
+
+- A better graphical interface (console)
+- Better error handling messages
+- More testing for user error prone
+
+---
+
 ## 📝 License
 
 This project is [MIT](/LICENSE) licensed.
