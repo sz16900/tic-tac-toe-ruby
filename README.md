@@ -66,6 +66,7 @@ The first player to get three of their symbols in a row, wins the game. Keep in 
 - Github: [@sz16900](https://github.com/sz16900)
 - Twitter: [@_sethzea_](https://twitter.com/_sethzea_)
 - Linkedin: [Linkedin](https://www.linkedin.com/in/seth-zea/)
+- Email: zea.seth@gmail.com
 
 
 👤 **Jose Fernandez Caminero**
