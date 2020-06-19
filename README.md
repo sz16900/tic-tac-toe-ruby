@@ -1,7 +1,6 @@
 # tic-tac-toe
 
-Tic tac toe! (The Game)
-Written in Ruby in partial fulfillment of the Microverse Cirriculum.
+Tic tac toe! (The Game). Developed to demostrate mastery of Object Oriented Programming principles in Ruby.This project is completed by Seth Zea and Jose Fernandez Caminero, in partial requirements of the Microverse cirriculum.
 
 ---
 
@@ -9,6 +8,7 @@ Written in Ruby in partial fulfillment of the Microverse Cirriculum.
 
 - Ruby
 - Rubocop
+- Rspec
 
 ---
 
