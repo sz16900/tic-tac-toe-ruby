@@ -1,6 +1,12 @@
-# tic-tac-toe
+# [Javascript Project: Weather App]
 
-Tic tac toe! (The Game). Developed to demostrate mastery of Object Oriented Programming principles in Ruby.This project is completed by Seth Zea and Jose Fernandez Caminero, in partial requirements of the Microverse cirriculum.
+In this project, I am going to make a Javascript weather application to demonstrate mastery of bundling javascript modules with webpack, async/await function and handling errors. Awesomized with Bootswatch. This project is completed by Seth Zea, in partial requirements of the Microverse cirriculum.
+
+---
+
+# [Ruby Project: Tic Tac Toe (The Game)]
+
+Developed to demostrate mastery of Object Oriented Programming principles in Ruby, Test Driven Development with rspec and pair-programming principles via Zoom.This project is completed by Seth Zea and Jose Fernandez Caminero, in partial requirements of the Microverse cirriculum.
 
 ---
 
