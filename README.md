@@ -74,6 +74,7 @@ The first player to get three of their symbols in a row, wins the game. Keep in 
 - Github: [@fdezcaminero](https://github.com/fdezcaminero)
 - Twitter: [@fdezcaminero](https://twitter.com/fdezcaminero)
 - Linkedin: [Linkedin](https://www.linkedin.com/in/fdezcaminero/)
+- Email: fdezcaminero@gmail.com
 
 ---
 
