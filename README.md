@@ -9,6 +9,7 @@ Developed to demostrate mastery of Object Oriented Programming principles in Rub
 - Ruby
 - Rubocop
 - Rspec
+- VS Code
 
 ---
 
